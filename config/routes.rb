@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :interests, only: [:index, :show]
   resources :users, only: [:index, :show, :edit, :update, :destroy]
   resources :matches, only: [:create, :destroy]
-  get '/home', to: 'static_pages#index', as: 'home'
+  get '/', to: 'static_pages#index', as: 'home'
   get '/new', to: 'users#new', as: 'new'
   post '/users', to: 'users#create'
   get '/login', to: 'sessions#new', as: 'login'
