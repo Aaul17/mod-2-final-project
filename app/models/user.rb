@@ -1,5 +1,14 @@
 class User < ApplicationRecord
   has_secure_password
+  validates :name, presence: true
+  validates :username, presence: true
+  validates :username, uniqueness: true
+  validates :age, numericality: {integer_only: true, greater_than: 0}
+  validates :email, presence: true
+  validates :email, uniqueness: true
+  validates_with EmailAddress::ActiveRecordValidator, field: :email
+  validates :bio, presence: true
+  validates :occupation, presence: true
 
   has_many :user_interests
   has_many :interests, through: :user_interests

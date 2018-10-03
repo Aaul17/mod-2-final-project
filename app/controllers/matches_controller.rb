@@ -7,8 +7,13 @@ class MatchesController < ApplicationController
   end
 
   def destroy
-    user = Match.find(params[:id]).matched
-    current_user.unmatch(user)
+    match = Match.find(params[:id])
+    user1 = User.find(match.matched_id)
+    user2 = User.find(match.matcher_id)
+    match1 = Match.where(matcher_id: user1.id,matched_id: user2.id)[0]
+    match2 = Match.where(matcher_id: user2.id,matched_id: user1.id)[0]
+    match1.destroy
+    match2.destroy
     redirect_back(fallback_location: current_user)
   end
 end
