@@ -1,0 +1,8 @@
+<%= form_for(current_user.active_relationships.new) do |f| %>
+  <div><%= hidden_field_tag :matched_id, @user.id %></div>
+    <% if current_user.matchers.find_by(id: @user.id) %>
+      <%= f.submit "Accept Match" %>
+    <% else %>
+      <%= f.submit "Request Match" %>
+    <% end %>
+<% end %>

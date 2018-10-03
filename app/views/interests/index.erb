@@ -1,0 +1,11 @@
+<h2>You are logged in as <%=link_to current_user.username, current_user %></h2>
+<%= button_to "Logout", logout_path, method: :delete %>
+<br>
+
+<h1>All Interests</h1>
+<ul>
+  <% @interests.each do |interest| %>
+  <li><%= link_to interest.name, interest %></li><br>
+  <% end %>
+</ul>
+<br>

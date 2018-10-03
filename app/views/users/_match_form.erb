@@ -1,0 +1,10 @@
+<% unless current_user.id == @user.id %>
+  <div id="match_form">
+    <% if current_user.matching?(@user)%>
+      <%= render 'unmatch' %>
+    <% else %>
+      <%= render 'match' %>
+    <% end %>
+  </div>
+  <br>
+<% end %>

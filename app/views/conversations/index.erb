@@ -1,0 +1,26 @@
+<h2>You are logged in as <%=link_to current_user.username, current_user %></h2>
+<%= button_to "Logout", logout_path, method: :delete %>
+<br>
+
+<h1>My Conversations</h1>
+
+<% @conversations.each do |conversation| %>
+  <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+    <% if conversation.sender_id == current_user.id %>
+      <% recipient = User.find(conversation.recipient_id) %>
+    <% else %>
+      <% recipient = User.find(conversation.sender_id) %>
+    <% end %>
+    <%= link_to recipient.username, conversation_messages_path(conversation) %>
+  <% end %>
+<% end %>
+
+<h3>The Birds I Flock With</h3>
+<% current_user.matchers.each do |matcher| %>
+  <% if current_user.matching?(matcher) %>
+    <%= matcher.username %> <%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: matcher.id), method: :post %>
+  <% end %>
+<% end %>
+
+<br>
+<%= button_to "View All Pigeons", users_path, method: :get %>
