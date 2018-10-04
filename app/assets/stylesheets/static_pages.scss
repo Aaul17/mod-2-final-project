@@ -1,3 +1,41 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.ui.primary.button {
+  color: #f8ffec;
+  justify-content: center;
+}
+
+.hero.is-medium.hero-body {
+  padding-bottom: 12rem;
+  padding-top: 12rem;
+}
+
+.hero-body {
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 4rem 2rem;
+}
+div {
+  display: block;
+}
+
+.hero.is-dark {
+  background-color: #464e67;
+  color: #f5f5f5;
+}
+
+body {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.title {
+  font-size: 55px;
+  justify-content: center;
+}
+
+.subtitle {
+  font-size: 25px;
+}

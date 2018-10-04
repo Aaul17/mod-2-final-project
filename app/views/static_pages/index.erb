@@ -1,4 +1,19 @@
-<h1>Welcome to Pigeon Dating App</h1>
-<p>Spread your wings and find your mate today!</p>
+<section class="hero is-medium is-primary is-bold is-dark">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Welcome to Pigeon Dating App
+      </h1>
+      <h2 class="subtitle">
+        Where Birds of One Feather Flock Together
+      </h2>
+    </div>
+  </div>
+</section>
 <br>
-<%= button_to "Sign Up", new_path, method: :get %>   <%= button_to "Login", login_path, method: :get %>
+<button class="ui primary button">
+  <%= link_to "Sign Up", new_path, method: :get %>
+</button>
+<button class="ui primary button">
+  <%= link_to "Login", login_path, method: :get %>
+</button>

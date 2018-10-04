@@ -37,7 +37,10 @@
         <li><%= link_to matcher.username, matcher%></li>
         <%= form_for(@user.active_relationships.new) do |f| %>
           <%= hidden_field_tag :matched_id, matcher.id %>
-          <%= f.submit "Accept Match" %>
+          <button class="ui basic button">
+            <i class="heart outline icon"></i>
+            <%= f.submit "Accept Match" %>
+          </button>
         <% end %>
       <% end %>
     <% end %>
