@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :bio, presence: true
   validates :occupation, presence: true
 
+  belongs_to :image
   has_many :user_interests
   has_many :interests, through: :user_interests
   has_many :active_relationships, class_name: "Match",

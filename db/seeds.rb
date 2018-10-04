@@ -8,6 +8,7 @@
 User.destroy_all
 Interest.destroy_all
 UserInterest.destroy_all
+Image.destroy_all
 
 User.create(name: "Anthony Schwartz", username: "SkyRat", age: 3, gender: "male", occupation: "Marketing Associate at Joe's Car Wash", bio: "I love long walks on the beach and a fine Chianti. I play it fast and loose. I'm not your average central park pigeon. Looking for a doll that can ruffle my feathers and doesn't mind a little fowl play now and then.", email: "skyrat@hotmail.com", password: "bird")
 User.create(name: "Richard Francis", username: "DirtyBird", age: 2, gender: "male", occupation: "Sanitation Worker", bio: "Making the city clean one cracker at a time.", email: "lovebird@aol.com", password: "bird")
@@ -34,3 +35,15 @@ UserInterest.create(user_id: 3, interest_id: 10)
 UserInterest.create(user_id: 3, interest_id: 6)
 UserInterest.create(user_id: 3, interest_id: 3)
 UserInterest.create(user_id: 3, interest_id: 2)
+
+puts "creating bird images"
+
+Image.create(name: "pigeon1.jpeg")
+Image.create(name: "pigeon2.jpeg")
+Image.create(name: "pigeon3.jpeg")
+Image.create(name: "pigeon4.jpeg")
+Image.create(name: "pigeon5.jpeg")
+Image.create(name: "pigeon6.jpeg")
+Image.create(name: "pigeon7.jpeg")
+Image.create(name: "pigeon8.jpeg")
+puts "bird images created"

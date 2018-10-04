@@ -7,6 +7,13 @@
 <% end %>
 
 <%= form_for @user do |f| %>
+  <p>Select Your Pigeon Avatar:</p>
+
+   <%= f.collection_radio_buttons(:image_id, Image.all, :id, :name) do |p| %> <br>
+      <%= p.label { image_tag(p.text) + p.radio_button} %>
+
+   <% end %>
+  <br>
   <%= f.label :name %>
   <%= f.text_field :name %><br>
   <%= f.label :username %>

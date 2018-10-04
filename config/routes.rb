@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :messages
   end
   resources :user_interests
+  resources :images, only: [:index]
   resources :interests, only: [:index, :show]
   resources :users, only: [:index, :show, :edit, :update, :destroy]
   resources :matches, only: [:create, :destroy]

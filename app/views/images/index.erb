@@ -1,0 +1,12 @@
+<h2>You are logged in as <%=link_to current_user.username, current_user %></h2>
+<%= button_to "Logout", logout_path, method: :delete %>
+<br>
+
+<h1>All Pigeon Pictures</h1>
+<ul>
+  <% @images.each do |image| %>
+  <li><%=image.name %></li><br>
+  <% end %>
+</ul>
+<br>
+<%= button_to "View All Pigeons", users_path, method: :get %>
