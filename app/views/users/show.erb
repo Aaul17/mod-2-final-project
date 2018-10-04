@@ -1,9 +1,16 @@
-<h2>You are logged in as <%=link_to current_user.username, current_user %></h2>
-<% if current_user.id != @user.id %>
-  <%= button_to "My Conversations", conversations_path, method: :get %><br>
-  <%= button_to "Logout", logout_path, method: :delete %>
-<% end %>
+<div id="menu-bar"class="ui inverted menu">
+  <div class="header item">PDA</div>
+  <a class="item" data-method="get" href="/users">Pigeons</a>
+  <a class="item" data-method="get" href="/interests">Interests</a>
+  <a class="item" data-method="get" href="/conversations">My Conversations</a>
+  <div class="right menu">
+    <div class="profile-pic item">X</div>
+    <a class="item" data-method="get" href= '<%= "/users/#{current_user.id}" %>'><%= current_user.username %></a>
+    <a class="item" rel="nofollow" data-method="delete" href="/logout">Logout</a>
+  </div>
+</div>
 
+<div class="show-info">
 <h4><%= flash[:notice] %></h4>
 
 <% provide(:title, @user.username) %>
@@ -11,64 +18,64 @@
   <%= image_tag @user.image.name %>
   <%= @user.username %>
 </h1>
-
-<p>Name: <%= @user.name %></p>
-<p>Gender: <%= @user.gender %></p>
-<p>Age: <%= @user.age %></p>
-<p>Occupation: <%= @user.occupation %></p>
-<p>Bio: <%= @user.bio %></p>
-<p>Interests:</p>
-<ul>
-  <% @user.interests.each do |interest| %>
-  <li><%= link_to interest.name, interest %></li>
-  <% end %>
-</ul>
-<% if current_user.id == @user.id %>
+  <p>Name: <%= @user.name %></p>
+  <p>Gender: <%= @user.gender %></p>
+  <p>Age: <%= @user.age %></p>
+  <p>Occupation: <%= @user.occupation %></p>
+  <p>Bio: <%= @user.bio %></p>
+  <p>Interests:</p>
+  <ul>
+    <% @user.interests.each do |interest| %>
+    <li><%= link_to interest.name, interest %></li>
+    <% end %>
+  </ul>
+  <% if current_user.id == @user.id %>
   <% count = 0 %>
   <% @user.matchers.each do |matcher| %>
-    <% unless @user.matching.include?(matcher) %>
-      <% count += 1 %>
-    <% end %>
+  <% unless @user.matching.include?(matcher) %>
+  <% count += 1 %>
+  <% end %>
   <% end %>
   <p>My Pigeon Admirers (<%= count %>):</p> <%=  %>
   <ul>
     <% @user.matchers.each do |matcher| %>
-      <% unless @user.matching?(matcher) %>
-        <li><%= link_to matcher.username, matcher%></li>
-        <%= form_for(@user.active_relationships.new) do |f| %>
-          <%= hidden_field_tag :matched_id, matcher.id %>
-          <button class="ui basic button">
-            <i class="heart outline icon"></i>
-            <%= f.submit "Accept Match" %>
-          </button>
-        <% end %>
-      <% end %>
+    <% unless @user.matching?(matcher) %>
+    <li><%= link_to matcher.username, matcher%></li>
+    <%= form_for(@user.active_relationships.new) do |f| %>
+    <%= hidden_field_tag :matched_id, matcher.id %>
+    <button class="ui basic button">
+      <i class="heart outline icon"></i>
+      <%= f.submit "Accept Match" %>
+    </button>
+    <% end %>
+    <% end %>
     <% end %>
   </ul>
   <% count = 0 %>
   <% @user.matchers.each do |matcher| %>
-    <% if @user.matching?(matcher) %>
-      <% count += 1 %>
-    <% end %>
+  <% if @user.matching?(matcher) %>
+  <% count += 1 %>
+  <% end %>
   <% end %>
   <p>The Birds That I Flock With (<%= count %>):</p> <%=  %>
   <ul>
     <% @user.matchers.each do |matcher| %>
-      <% if @user.matching?(matcher) %>
-        <li><%= link_to matcher.username, matcher%></li>
-        <%= form_for(current_user.active_relationships.find_by(matched_id: matcher.id), method: :delete) do |f| %>
-          <%= f.submit "Unmatch", data: { confirm: "You no longer want to flock with this bird?"} %>
-        <% end %>
-      <% end %>
+    <% if @user.matching?(matcher) %>
+    <li><%= link_to matcher.username, matcher%></li>
+    <%= form_for(current_user.active_relationships.find_by(matched_id: matcher.id), method: :delete) do |f| %>
+    <%= f.submit "Unmatch", data: { confirm: "You no longer want to flock with this bird?"} %>
+    <% end %>
+    <% end %>
     <% end %>
   </ul>
-<% end %>
-<br>
-<%= render 'match_form' %>
-<% if current_user.id == @user.id %>
-  <%= button_to 'Edit Account', edit_user_path, method: :get %><br>
-<% end %>
-<%= button_to "View All Pigeons", users_path, method: :get %><br>
-<% if current_user.id == @user.id %>
-  <%= button_to 'Logout', logout_path, method: :delete %>
-<% end %>
+  <% end %>
+  <br>
+  <%= render 'match_form' %>
+  <% if current_user.id == @user.id %>
+  <%= link_to 'Edit Account', edit_user_path, method: :get %><br>
+  <% end %>
+  <%= link_to "View All Pigeons", users_path, method: :get %><br>
+  <% if current_user.id == @user.id %>
+  <%= link_to 'Logout', logout_path, method: :delete %>
+  <% end %>
+</div>

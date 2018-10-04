@@ -1,4 +1,17 @@
-<h1>Edit Profile</h1>
-<%= render 'form' %>
-<br>
-<%= button_to "Delete", @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div id="menu-bar"class="ui inverted menu">
+  <div class="header item">PDA</div>
+  <a class="item" data-method="get" href="/users">Pigeons</a>
+  <a class="item" data-method="get" href="/interests">Interests</a>
+  <a class="item" data-method="get" href="/conversations">My Conversations</a>
+  <div class="right menu">
+    <div class="profile-pic item">X</div>
+    <a class="item" data-method="get" href= '<%= "/users/#{current_user.id}" %>'><%= current_user.username %></a>
+    <a class="item" rel="nofollow" data-method="delete" href="/logout">Logout</a>
+  </div>
+</div>
+<div class="main-content">
+  <h1>Edit Profile</h1>
+  <%= render 'form' %>
+  <br>
+  <%= button_to "Delete", @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>

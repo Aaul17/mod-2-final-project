@@ -1,3 +1,15 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.login-form {
+  display: flex;
+  margin-left: 20px;
+}
+
+.login-header {
+  padding-left: 20px;
+  padding-top: 10px;
+}
+#flash-notice {
+  margin-left: 20px;
+}

@@ -1,20 +1,29 @@
-<h2>You are logged in as <%=link_to current_user.username, current_user %></h2>
-<%= button_to "My Conversations", conversations_path, method: :get %><br>
-<%= button_to "Logout", logout_path, method: :delete %>
-<br>
-<h1>All Pigeons</h1>
-<%= form_tag(users_path, method: :get) do %>
-  <%= text_field_tag(:search, params[:search]) %>
-  <%= submit_tag ("Search") %>
-<% end %>
-<br>
-<% @users.each do |user| %>
-<%= link_to user.username, user %>
-<ul>
-  <li>Gender: <%= user.gender %></li>
-  <li>Age: <%= user.age %></li>
-  <li>Occupation: <%= user.occupation %></li>
-</ul>
-
-<% end %>
-<br>
+<div id="menu-bar"class="ui inverted menu">
+  <div class="header item">PDA</div>
+  <a class="item" data-method="get" href="/users">Pigeons</a>
+  <a class="item" data-method="get" href="/interests">Interests</a>
+  <a class="item" data-method="get" href="/conversations">My Conversations</a>
+  <div class="right menu">
+    <div class="profile-pic item">X</div>
+    <a class="item" data-method="get" href= '<%= "/users/#{current_user.id}" %>'><%= current_user.username %></a>
+    <a class="item" rel="nofollow" data-method="delete" href="/logout">Logout</a>
+  </div>
+</div>
+<div class="main-content">
+  <h1>All Pigeons</h1>
+  <div class="search-bar">
+    <form class="ui action input" action="/users" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+      <input type="text" placeholder="Search..." name="search" id="search">
+      <input class="ui grey button" type="submit" name="commit" value="Search" data-disable-with="Search">
+    </form>
+  </div>
+  <br>
+  <% @users.each do |user| %>
+    <%= link_to user.username, user %>
+    <ul>
+      <li>Gender: <%= user.gender %></li>
+      <li>Age: <%= user.age %></li>
+      <li>Occupation: <%= user.occupation %></li>
+    </ul>
+  <% end %>
+</div>
