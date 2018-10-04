@@ -1,14 +1,8 @@
 <%= form_for(current_user.active_relationships.new) do |f| %>
   <div><%= hidden_field_tag :matched_id, @user.id %></div>
     <% if current_user.matchers.find_by(id: @user.id) %>
-      <button class="ui basic button">
-        <i class="heart outline icon"></i>
-        <%= f.submit "Accept Match" %>
-      </button>
+      <input class="ui basic button" type="submit" name="commit" value="Accept Match" data-disable-with="Accept Match">
     <% else %>
-      <button class="ui basic button">
-        <i class="heart outline icon"></i>
-        <%= f.submit "Request Match" %>
-      </button>
+      <input class="ui basic button" type="submit" name="commit" value="Request Match" data-disable-with="Request Match">
     <% end %>
 <% end %>

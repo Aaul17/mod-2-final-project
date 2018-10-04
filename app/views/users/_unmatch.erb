@@ -1,6 +1,3 @@
 <%= form_for(current_user.active_relationships.find_by(matched_id: @user.id), method: :delete) do |f| %>
-  <button class="ui basic button">
-    <i class="heart outline icon"></i>
-    <%= f.submit "Unmatch", data: { confirm: "You no longer want to flock with this bird?"} %>
-  </button>
+    <input class="ui basic button" type="submit" name="commit" value="Unmatch" data-confirm="You no longer want to flock with this bird?" data-disable-with="Unmatch">
 <% end %>

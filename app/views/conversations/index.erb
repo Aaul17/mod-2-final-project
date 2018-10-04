@@ -1,26 +1,38 @@
-<h2>You are logged in as <%=link_to current_user.username, current_user %></h2>
-<%= button_to "Logout", logout_path, method: :delete %>
-<br>
-
-<h1>My Conversations</h1>
-
-<% @conversations.each do |conversation| %>
-  <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-    <% if conversation.sender_id == current_user.id %>
+<div id="menu-bar"class="ui inverted menu">
+  <div class="header item">PDA</div>
+  <a class="item" data-method="get" href="/users">Pigeons</a>
+  <a class="item" data-method="get" href="/interests">Interests</a>
+  <a class="item" data-method="get" href="/conversations">My Conversations</a>
+  <div class="right menu">
+    <div class="profile-pic item">X</div>
+    <a class="item" data-method="get" href= '<%= "/users/#{current_user.id}" %>'><%= current_user.username %></a>
+    <a class="item" rel="nofollow" data-method="delete" href="/logout">Logout</a>
+  </div>
+</div>
+<div class="main-content">
+  <h1>My Conversations</h1>
+  <% current_user.matchers.each do |matcher| %>
+    <% if current_user.matching?(matcher) %>
+      <% @conversations.each do |conversation| %>
+      <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+      <% if conversation.sender_id == current_user.id %>
       <% recipient = User.find(conversation.recipient_id) %>
-    <% else %>
+      <% else %>
       <% recipient = User.find(conversation.sender_id) %>
+      <% end %>
+      <%= link_to recipient.username, conversation_messages_path(conversation) %>
+      <% end %>
+      <% end %>
     <% end %>
-    <%= link_to recipient.username, conversation_messages_path(conversation) %>
   <% end %>
-<% end %>
 
-<h3>The Birds I Flock With</h3>
-<% current_user.matchers.each do |matcher| %>
+  <h3>The Birds I Flock With</h3>
+  <% current_user.matchers.each do |matcher| %>
   <% if current_user.matching?(matcher) %>
-    <%= matcher.username %> <%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: matcher.id), method: :post %>
+  <%= matcher.username %> <%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: matcher.id), method: :post %><br>
   <% end %>
-<% end %>
+  <% end %>
 
-<br>
-<%= button_to "View All Pigeons", users_path, method: :get %>
+  <br>
+  <%= button_to "View All Pigeons", users_path, method: :get %>
+</div>

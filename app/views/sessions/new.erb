@@ -1,30 +1,26 @@
-<h1>Login</h1>
+<h1 class="login-header">Login</h1>
 
-<h4><%= flash[:notice] %></h4>
-<form class="ui large form">
-  <div class="ui stacked segment">
-    <%= form_tag(login_path) do %>
-    <div class="field">
-      <div class="ui left icon input">
-        <%= label_tag :username %>
-        <%= text_field_tag :username %>
+<h4 id="flash-notice"><%= flash[:notice] %></h4>
+<div class="login-form">
+  <div class="ui segment">
+    <div class="ui form">
+      <%= form_tag(login_path) do %>
+      <div class="two fields">
+        <div class="field">
+          <%= label_tag :username %>
+          <%= text_field_tag :username %>
+        </div>
+        <div class="field">
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
+        </div>
       </div>
+      <input class="ui blue submit button" type="submit" name="commit" value="Login" data-disable-with="Login">
+      <% end %>
     </div>
-    <div class="field">
-      <div class="ui left icon input">
-        <%= label_tag :password %>
-        <%= password_field_tag :password %>
-      </div>
-    </div>
-    <div class="ui fluid large submit button">
-      <%= submit_tag 'Login' %>
-    </div>
-    <% end %>
+    <br>
+    New to us?
+    <%= link_to "Create A New Account", new_path %>
   </div>
-</form>
-<br>
-<div class="ui message">
-
-        New to us?   
-  <%= link_to "Create A New Account", new_path %>
 </div>
+<br>
