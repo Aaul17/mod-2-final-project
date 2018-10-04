@@ -10,9 +10,12 @@ Interest.destroy_all
 UserInterest.destroy_all
 Image.destroy_all
 
-User.create(name: "Anthony Schwartz", username: "SkyRat", age: 3, gender: "male", occupation: "Marketing Associate at Joe's Car Wash", bio: "I love long walks on the beach and a fine Chianti. I play it fast and loose. I'm not your average central park pigeon. Looking for a doll that can ruffle my feathers and doesn't mind a little fowl play now and then.", email: "skyrat@hotmail.com", password: "bird")
-User.create(name: "Richard Francis", username: "DirtyBird", age: 2, gender: "male", occupation: "Sanitation Worker", bio: "Making the city clean one cracker at a time.", email: "lovebird@aol.com", password: "bird")
-User.create(name: "Sylvia Fields", username: "HotBirdToTrot", age: 6, gender: "female", occupation: "Zoo Showbird", bio: "I am the textbook ideal of a pigeon. If you're not ready to treat me like a queen, don't talk to me. I eat ciabatta crumbs only.", email: "materialgurl@gmail.com", password: "bird")
+puts "creating users"
+User.create(name: "Anthony Schwartz", username: "SkyRat", age: 3, gender: "male", occupation: "Marketing Associate at Joe's Car Wash", bio: "I love long walks on the beach and a fine Chianti. I play it fast and loose. I'm not your average central park pigeon. Looking for a doll that can ruffle my feathers and doesn't mind a little fowl play now and then.", email: "skyrat@hotmail.com", password: "bird", image_id: 1)
+User.create(name: "Richard Francis", username: "DirtyBird", age: 2, gender: "male", occupation: "Sanitation Worker", bio: "Making the city clean one cracker at a time.", email: "lovebird@aol.com", password: "bird", image_id: 3)
+User.create(name: "Sylvia Fields", username: "HotBirdToTrot", age: 6, gender: "female", occupation: "Zoo Showbird", bio: "I am the textbook ideal of a pigeon. If you're not ready to treat me like a queen, don't talk to me. I eat ciabatta crumbs only.", email: "materialgurl@gmail.com", password: "bird", image_id: 4)
+puts "users created!"
+
 
 Interest.create(name: "Basketweaving")
 Interest.create(name: "Deep-sea Diving")
@@ -38,12 +41,11 @@ UserInterest.create(user_id: 3, interest_id: 2)
 
 puts "creating bird images"
 
-Image.create(name: "pigeon1.jpeg")
-Image.create(name: "pigeon2.jpeg")
-Image.create(name: "pigeon3.jpeg")
-Image.create(name: "pigeon4.jpeg")
-Image.create(name: "pigeon5.jpeg")
-Image.create(name: "pigeon6.jpeg")
-Image.create(name: "pigeon7.jpeg")
-Image.create(name: "pigeon8.jpeg")
+Image.create(name: "https://i.imgur.com/pmVjHQk.jpg")
+Image.create(name: "https://i.imgur.com/FA2tU1Y.jpg")
+Image.create(name: "https://i.imgur.com/F5ta3xN.jpg")
+Image.create(name: "https://i.imgur.com/bJsLTOS.jpg")
+Image.create(name: "https://i.imgur.com/ata1AnL.jpg")
+Image.create(name: "https://i.imgur.com/a5Jhkt1.jpg")
+Image.create(name: "https://i.imgur.com/kpcKoIB.jpg")
 puts "bird images created"

@@ -8,34 +8,59 @@
 
 <%= form_for @user do |f| %>
   <p>Select Your Pigeon Avatar:</p>
-
-   <%= f.collection_radio_buttons(:image_id, Image.all, :id, :name) do |p| %> <br>
-      <%= p.label { image_tag(p.text) + p.radio_button} %>
-
-   <% end %>
+    <input type="hidden" name="user[image_id]" value="">
+    <br>
+  <div class="ui four column grid">
+    <div class="row">
+      <div class="column">
+        <label for="user_image_id_1"><img class="form-pic" src="https://i.imgur.com/pmVjHQk.jpg"><input type="radio" value="1" name="user[image_id]" id="user_image_id_1"></label>
+      </div>
+      <div class="column">
+        <label for="user_image_id_2"><img class="form-pic" src="https://i.imgur.com/FA2tU1Y.jpg"><input type="radio" value="2" name="user[image_id]" id="user_image_id_2"></label>
+      </div>
+      <div class="column">
+        <label for="user_image_id_3"><img class="form-pic" src="https://i.imgur.com/F5ta3xN.jpg"><input type="radio" value="3" name="user[image_id]" id="user_image_id_3"></label>
+      </div>
+      <div class="column">
+        <label for="user_image_id_4"><img class="form-pic" src="https://i.imgur.com/bJsLTOS.jpg"><input type="radio" value="4" name="user[image_id]" id="user_image_id_4"></label>
+      </div>
+    </div>
+    <div class="column">
+      <label for="user_image_id_5"><img class="form-pic" src="https://i.imgur.com/ata1AnL.jpg"><input type="radio" value="5" name="user[image_id]" id="user_image_id_5"></label>
+    </div>
+    <div class="column">
+      <label for="user_image_id_6"><img class="form-pic" src="https://i.imgur.com/a5Jhkt1.jpg"><input type="radio" value="6" name="user[image_id]" id="user_image_id_6"></label>
+    </div>
+    <div class="column">
+      <label for="user_image_id_7"><img class="form-pic" src="https://i.imgur.com/kpcKoIB.jpg"><input type="radio" value="7" name="user[image_id]" id="user_image_id_7"></label>
+    </div>
+  </div>
   <br>
-  <%= f.label :name %>
+  <%= f.label :name, "Name:" %>
   <%= f.text_field :name %><br>
-  <%= f.label :username %>
+  <%= f.label :username, "Username:" %>
   <%= f.text_field :username %><br>
-  <%= f.label :email %>
+  <%= f.label :password, "Password:" %>
+  <%= f.password_field :password %><br>
+  <%= f.label :email, "Email:" %>
   <%= f.email_field :email %><br>
-  <%= f.label :age %>
+  <%= f.label :age, "Age:"%>
   <%= f.number_field :age %><br>
-  <%= f.label "Male" %>
-  <%= f.radio_button :gender, "Male" %><br>
-  <%= f.label "Female" %>
-  <%= f.radio_button :gender, "Female" %><br>
-  <%= f.label "Non-Binary" %>
-  <%= f.radio_button :gender, "Non-Binary" %><br>
-  <%= f.label :occupation %>
+  <%= f.label :occupation, "Occupation:" %>
   <%= f.text_field :occupation %><br>
-  <%= f.label :bio %>
-  <%= f.text_area :bio %><br>
-  <p>Select Your Interests:</p>
+  <div class="inline fields">
+    <label>Gender:  </label>
+    <%= f.label "Male" %>
+    <%= f.radio_button :gender, "Male" %>
+    <%= f.label "Female" %>
+    <%= f.radio_button :gender, "Female" %>
+    <%= f.label "Non-Binary" %>
+    <%= f.radio_button :gender, "Non-Binary" %>
+  </div>
+  Select Your Interests:<br>
   <%= f.collection_check_boxes :interest_ids, Interest.all, :id, :name %><br>
   <br>
-  <%= f.label :password %>
-  <%= f.password_field :password %><br><br>
+  <%= f.label :bio, "Bio:" %>
+  <%= f.text_area :bio, size: "60x5" %><br>
   <%= f.submit %>
 <% end %>

@@ -15,7 +15,7 @@
 
 <% provide(:title, @user.username) %>
 <h1>
-  <%= image_tag @user.image.name %>
+  <img class="profile-pic" src="<%= @user.image.name %>">
   <%= @user.username %>
 </h1>
   <p>Name: <%= @user.name %></p>
