@@ -4,7 +4,7 @@
   <a class="item" data-method="get" href="/interests">Interests</a>
   <a class="item" data-method="get" href="/conversations">My Conversations</a>
   <div class="right menu">
-    <div class="profile-pic item">X</div>
+    <div class="item"><img class="menu-pic" src="<%= current_user.image.name %>"></div>
     <a class="item" data-method="get" href= '<%= "/users/#{current_user.id}" %>'><%= current_user.username %></a>
     <a class="item" rel="nofollow" data-method="delete" href="/logout">Logout</a>
   </div>
@@ -35,9 +35,9 @@
   </div>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div>
-    <%= f.submit "Send Message" %>
+    <input class="ui basic button" type="submit" name="commit" value="Send Message" data-disable-with="Send Message">
   </div>
   <% end %>
   <br>
-  <%= button_to "Back to All Conversations", conversations_path, method: :get %>
+  <%= link_to "Back to All Conversations", conversations_path, method: :get %>
 </div>
