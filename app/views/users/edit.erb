@@ -13,5 +13,5 @@
   <h1>Edit Profile</h1>
   <%= render 'form' %>
   <br>
-  <%= button_to "Delete", @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <a class="negative ui button" data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/users/3">Delete My Account</a>
 </div>

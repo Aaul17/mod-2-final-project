@@ -20,16 +20,16 @@
           <% else %>
             <% recipient = User.find(conversation.sender_id) %>
           <% end %>
-          <%= link_to recipient.username, conversation_messages_path(conversation) %>
+          <%= link_to recipient.username, conversation_messages_path(conversation) %><br>
         <% end %>
       <% end %>
     <% end %>
   <% end %>
-  <br>
+  <br><br>
   <h3>The Birds I Flock With</h3>
   <% current_user.matchers.each do |matcher| %>
     <% if current_user.matching?(matcher) %>
-      <%= matcher.username %><br> 
+      <%= matcher.username %><br>
       <%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: matcher.id), method: :post %><br>
     <% end %>
   <% end %>

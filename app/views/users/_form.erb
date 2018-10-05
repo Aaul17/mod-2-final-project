@@ -5,34 +5,37 @@
   <% end %>
 </ul>
 <% end %>
-
-<%= form_for @user do |f| %>
+<div id="main-form" class="ui form">
+  <%= form_for @user do |f| %>
   <p>Select Your Pigeon Avatar:</p>
-    <input type="hidden" name="user[image_id]" value="">
-    <br>
+  <input type="hidden" name="user[image_id]" value="">
+  <br>
   <div class="ui four column grid">
     <div class="row">
       <div class="column">
-        <label for="user_image_id_1"><img class="form-pic" src="https://i.imgur.com/pmVjHQk.jpg"><input type="radio" value="1" name="user[image_id]" id="user_image_id_1"></label>
+        <label for="user_image_id_1"><img class="form-pic" src="https://i.imgur.com/ZBMWt4h.jpg"><input type="radio" value="1" name="user[image_id]" id="user_image_id_1"></label>
       </div>
       <div class="column">
-        <label for="user_image_id_2"><img class="form-pic" src="https://i.imgur.com/FA2tU1Y.jpg"><input type="radio" value="2" name="user[image_id]" id="user_image_id_2"></label>
+        <label for="user_image_id_2"><img class="form-pic" src="https://i.imgur.com/wJ5Z1EA.jpg"><input type="radio" value="2" name="user[image_id]" id="user_image_id_2"></label>
       </div>
       <div class="column">
-        <label for="user_image_id_3"><img class="form-pic" src="https://i.imgur.com/F5ta3xN.jpg"><input type="radio" value="3" name="user[image_id]" id="user_image_id_3"></label>
+        <label for="user_image_id_3"><img class="form-pic" src="https://i.imgur.com/PfC1IWR.jpg"><input type="radio" value="3" name="user[image_id]" id="user_image_id_3"></label>
       </div>
       <div class="column">
-        <label for="user_image_id_4"><img class="form-pic" src="https://i.imgur.com/bJsLTOS.jpg"><input type="radio" value="4" name="user[image_id]" id="user_image_id_4"></label>
+        <label for="user_image_id_4"><img class="form-pic" src="https://i.imgur.com/3NmM0mo.jpg"><input type="radio" value="4" name="user[image_id]" id="user_image_id_4"></label>
       </div>
     </div>
     <div class="column">
-      <label for="user_image_id_5"><img class="form-pic" src="https://i.imgur.com/ata1AnL.jpg"><input type="radio" value="5" name="user[image_id]" id="user_image_id_5"></label>
+      <label for="user_image_id_5"><img class="form-pic" src="https://i.imgur.com/S7lbCym.jpg"><input type="radio" value="5" name="user[image_id]" id="user_image_id_5"></label>
     </div>
     <div class="column">
-      <label for="user_image_id_6"><img class="form-pic" src="https://i.imgur.com/a5Jhkt1.jpg"><input type="radio" value="6" name="user[image_id]" id="user_image_id_6"></label>
+      <label for="user_image_id_6"><img class="form-pic" src="https://i.imgur.com/ceuxeOx.jpg"><input type="radio" value="6" name="user[image_id]" id="user_image_id_6"></label>
     </div>
     <div class="column">
-      <label for="user_image_id_7"><img class="form-pic" src="https://i.imgur.com/kpcKoIB.jpg"><input type="radio" value="7" name="user[image_id]" id="user_image_id_7"></label>
+      <label for="user_image_id_7"><img class="form-pic" src="https://i.imgur.com/qRz62fZ.jpg"><input type="radio" value="7" name="user[image_id]" id="user_image_id_7"></label>
+    </div>
+    <div class="column">
+      <label for="user_image_id_8"><img class="form-pic" src="https://i.imgur.com/SAzSZny.jpg"><input type="radio" value="7" name="user[image_id]" id="user_image_id_7"></label>
     </div>
   </div>
   <br>
@@ -61,6 +64,9 @@
   <%= f.collection_check_boxes :interest_ids, Interest.all, :id, :name %><br>
   <br>
   <%= f.label :bio, "Bio:" %>
-  <%= f.text_area :bio, size: "60x5" %><br>
-  <%= f.submit %>
-<% end %>
+  <div class="field">
+    <%= f.text_area :bio, size: "60x5" %>
+  </div>
+  <%= f.submit class: "ui positive button" %>
+  <% end %>
+</div>

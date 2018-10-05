@@ -28,7 +28,14 @@
 }
 
 .profile-pic {
-  border-radius: 50%;
-  max-height: 70px;
-  border: black solid 2px;
+  max-height: 80px;
+}
+#main-form {
+  display: flex;
+  max-width: 750px;
+}
+.ui.card {
+  display: inline-flex;
+  margin-left: 5px;
+  margin-right: 5px;
 }

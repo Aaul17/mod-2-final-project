@@ -13,7 +13,11 @@
   <h1>All Interests</h1>
   <ul>
     <% @interests.each do |interest| %>
-    <li><%= link_to interest.name, interest %></li><br>
+    <div class="interest card">
+      <div class="content">
+        <div class="header"><%= link_to interest.name, interest %></div>
+      </div>
+    </div>
     <% end %>
   </ul>
   <br>

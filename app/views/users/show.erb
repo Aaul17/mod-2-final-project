@@ -69,10 +69,7 @@
   <br>
   <%= render 'match_form' %>
   <% if current_user.id == @user.id %>
-  <%= link_to 'Edit Account', edit_user_path, method: :get %><br>
-  <% end %>
-  <%= link_to "View All Pigeons", users_path, method: :get %><br>
-  <% if current_user.id == @user.id %>
-  <%= link_to 'Logout', logout_path, method: :delete %>
+    <%= link_to 'Edit Account', edit_user_path, method: :get %><br>
+    <%= link_to 'Logout', logout_path, method: :delete %>
   <% end %>
 </div>

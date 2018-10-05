@@ -11,7 +11,7 @@
 </div>
 <div class="main-content">
   <h1>Conversation</h1>
-
+  <br>
   <% @messages.each do |message| %>
   <% if message.body %>
   <% user = User.find(message.user_id) %>
@@ -28,10 +28,10 @@
   </div>
   <% end %>
   <% end %>
-
+  <br>
   <%= form_for [@conversation, @message] do |f| %>
   <div>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, size: "30x3" %>
   </div>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div>
