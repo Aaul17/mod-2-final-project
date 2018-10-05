@@ -52,17 +52,61 @@
   <%= f.label :occupation, "Occupation:" %>
   <%= f.text_field :occupation %><br>
   <div class="inline fields">
-    <label>Gender:  </label>
+    <label>Gender:  </label><br>
     <%= f.label "Male" %>
-    <%= f.radio_button :gender, "Male" %>
+    <%= f.radio_button :gender, "Male" %><br>
     <%= f.label "Female" %>
-    <%= f.radio_button :gender, "Female" %>
+    <%= f.radio_button :gender, "Female" %><br>
     <%= f.label "Non-Binary" %>
-    <%= f.radio_button :gender, "Non-Binary" %>
+    <%= f.radio_button :gender, "Non-Binary" %><br>
   </div>
-  Select Your Interests:<br>
-  <%= f.collection_check_boxes :interest_ids, Interest.all, :id, :name %><br>
-  <br>
+  Select Your Interests:<br><br>
+  <div class="ui five column grid">
+    <input type="hidden" name="user[interest_ids][]" value="">
+    <div class="row">
+      <div class="column">
+        <input type="checkbox" value="1" name="user[interest_ids][]" id="user_interest_ids_1">
+        <label for="user_interest_ids_1">Basketweaving</label>
+      </div>
+      <div class="column">
+        <input type="checkbox" value="2" name="user[interest_ids][]" id="user_interest_ids_2">
+        <label for="user_interest_ids_2">Deep-sea Diving</label>
+      </div>
+      <div class="column">
+        <input type="checkbox" value="3" name="user[interest_ids][]" id="user_interest_ids_3">
+        <label for="user_interest_ids_3">Hardcore Headbobbing</label>
+      </div>
+      <div class="column">
+        <input type="checkbox" value="4" name="user[interest_ids][]" id="user_interest_ids_4">
+        <label for="user_interest_ids_4">Cave Spelunking</label>
+      </div>
+      <div class="column">
+        <input type="checkbox" value="5" name="user[interest_ids][]" id="user_interest_ids_5">
+        <label for="user_interest_ids_5">Skydiving</label>
+      </div>
+    </div>
+    <div class="column">
+      <input type="checkbox" value="6" name="user[interest_ids][]" id="user_interest_ids_6">
+      <label for="user_interest_ids_6">Reading Tabloids</label>
+    </div>
+    <div class="column">
+      <input type="checkbox" value="7" name="user[interest_ids][]" id="user_interest_ids_7">
+      <label for="user_interest_ids_7">Crumb Tasting</label>
+    </div>
+    <div class="column">
+      <input type="checkbox" value="8" name="user[interest_ids][]" id="user_interest_ids_8">
+      <label for="user_interest_ids_8">Avoiding Death</label>
+    </div>
+    <div class="column">
+      <input type="checkbox" value="9" name="user[interest_ids][]" id="user_interest_ids_9">
+      <label for="user_interest_ids_9">People Watching</label>
+    </div>
+    <div class="column">
+      <input type="checkbox" value="10" name="user[interest_ids][]" id="user_interest_ids_10">
+      <label for="user_interest_ids_10">Birdbath Bathing</label>
+    </div>
+  </div>
+  <br><br>
   <%= f.label :bio, "Bio:" %>
   <div class="field">
     <%= f.text_area :bio, size: "60x5" %>
